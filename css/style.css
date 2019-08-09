@@ -1,0 +1,26 @@
+.page-link {
+  color: #333 !important;
+}
+
+a.active.page-link {
+  background: rgb(207, 199, 199) !important;
+  border-color: transparent !important;
+}
+
+body {
+  background: #fff;
+}
+
+.gallery {
+  margin: 3px;
+  padding: 4px;
+  border: 1px solid #ccc;
+  float: left;
+  /* width: 180px; */
+}
+
+.navbar {
+  border-bottom: 2px solid #999;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
