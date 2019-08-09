@@ -72,12 +72,10 @@ class Db_object
   // ===== CLEAN PROPERTIES =====//
   protected function clean_properties()
   {
-    global $database;
-
     $clean_properties = array();
 
     foreach ($this->properties() as $key => $value) {
-      $clean_properties[$key] = $database->escape_string($value);
+      $clean_properties[$key] = $this->db->escape_string($value);
     }
 
     return $clean_properties;
@@ -90,15 +88,13 @@ class Db_object
   //=====  CREATE FUNCTION =====//
   public function create()
   {
-    global $database;
-
     $properties = $this->clean_properties();
 
     $sql = "INSERT INTO " . $this->db_table . " (" . implode(",", array_keys($properties)) . ") ";
     $sql .= "VALUES ('" . implode("','", array_values($properties)) . "')";
 
-    if ($database->query($sql)) {
-      $this->id = $database->the_insert_id();
+    if ($this->db->query($sql)) {
+      $this->id = $this->db->the_insert_id();
       return true;
     } else {
       return false;
@@ -107,7 +103,6 @@ class Db_object
   //=====  UPDATE FUNCTION =====//
   public function update()
   {
-    global $database;
     $properties = $this->clean_properties();
     $properties_pairs = array();
 
@@ -117,30 +112,27 @@ class Db_object
 
     $sql = "UPDATE " . $this->db_table . " SET ";
     $sql .= implode(", ", $properties_pairs);
-    $sql .= " WHERE id = " . $database->escape_string($this->id);
+    $sql .= " WHERE id = " . $this->db->escape_string($this->id);
 
-    $database->query($sql);
+    $this->db->query($sql);
 
-    return (mysqli_affected_rows($database->connection) == 1) ? true : false;
+    return (mysqli_affected_rows($this->db->connection) == 1) ? true : false;
   }
   //=====  DELETE FUNCTION =====//
   public function delete()
   {
-    global $database;
+    $sql = "DELETE FROM " . $this->db_table . " WHERE id = " . $this->db->escape_string($this->id) . " LIMIT 1";
 
-    $sql = "DELETE FROM " . $this->db_table . " WHERE id = " . $database->escape_string($this->id) . " LIMIT 1";
+    $this->db->query($sql);
 
-    $database->query($sql);
-
-    return (mysqli_affected_rows($database->connection) == 1) ? true : false;
+    return (mysqli_affected_rows($this->db->connection) == 1) ? true : false;
   }
 
   //===== COUNT METHOD =====// 
   public function count_all()
   {
-    global $database;
     $sql = "SELECT COUNT(*) FROM " . $this->db_table;
-    $result_set = $database->query($sql);
+    $result_set = $this->db->query($sql);
     $row = mysqli_fetch_array($result_set);
 
     return array_shift($row);

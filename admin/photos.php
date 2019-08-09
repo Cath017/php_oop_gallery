@@ -24,7 +24,13 @@ $photos = (new User(new Database))->find_by_id($_SESSION['user_id'])->photos(new
                 <h1 class="page-header">
                     PHOTOS
                 </h1>
-                <p class="bg-danger"><?php echo $message; ?></p>
+                <?php if ($message) : ?>
+                    <div id="msg" class="row">
+                        <div class="col-md-6">
+                            <div class="alert alert-success"><?php echo $message; ?></div>
+                        </div>
+                    </div>
+                <?php endif; ?>
                 <div class="col-md-12">
                     <table class="table table-hover">
                         <thead>
@@ -68,5 +74,6 @@ $photos = (new User(new Database))->find_by_id($_SESSION['user_id'])->photos(new
 
 </div>
 <!-- /#page-wrapper -->
+
 
 <?php include("includes/footer.php"); ?>

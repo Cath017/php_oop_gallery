@@ -19,6 +19,12 @@
 
   <script src="js/script.js"></script>
 
+  <script>
+    setTimeout(function() {
+      $('#msg').fadeOut();
+    }, 2000);
+  </script>
+
   <script type="text/javascript">
     google.charts.load("current", {
       packages: ["corechart"]

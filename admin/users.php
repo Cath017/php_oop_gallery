@@ -24,7 +24,13 @@ $users = (new User(new Database))->find_all();
                 <h1 class="page-header">
                     USERS <a class="btn btn-primary pull-right" href="add_user.php"> Add User</a>
                 </h1>
-                <p class="bg-success"><?php echo $message; ?></p>
+                <?php if ($message) : ?>
+                    <div id="msg" class="row">
+                        <div class="col-md-6">
+                            <div class="alert alert-success"><?php echo $message; ?></div>
+                        </div>
+                    </div>
+                <?php endif; ?>
                 <div class="col-md-12">
                     <table class="table table-hover">
                         <thead>
