@@ -38,6 +38,6 @@
 
 </head>
 
-<body>
+<body class="<?= strpos($_SERVER['REQUEST_URI'], 'login') !== false ? 'login-page' : '' ?>">
 
     <div id="wrapper">

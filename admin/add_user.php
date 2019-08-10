@@ -16,9 +16,7 @@ if (isset($_POST['create'])) {
     $user->first_name = $_POST['first_name'];
     $user->last_name = $_POST['last_name'];
 
-    $user->set_file($_FILES['user_image']);
 
-    $user->upload_image();
     $user->save();
     $session->message("The user {$user->username} has been created.");
     redirect('users.php');
@@ -44,9 +42,6 @@ if (isset($_POST['create'])) {
         </h1>
         <form action="" method="post" enctype="multipart/form-data">
           <div class="col-md-6">
-            <div class="form-group">
-              <input type="file" name="user_image">
-            </div>
             <div class="form-group">
               <label for="username">Username</label>
               <input type="text" name="username" class="form-control">

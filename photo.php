@@ -12,6 +12,7 @@ if (empty($_GET['id'])) {
 }
 
 $photo = $photo->find_by_id($_GET['id']);
+$user = $user->find_by_id($photo->user_id);
 $message = "";
 
 if (isset($_POST['submit'])) {
@@ -49,14 +50,14 @@ $comments = $comment->find_comments($photo->id);
         <!-- Author -->
         <p class="lead">
             by <a href="#">
-
+                <?php echo $user->username; ?>
             </a>
         </p>
 
 
 
         <!-- Date/Time -->
-        <p>Posted on <?php echo $photo->created_at; ?></p>
+        <p>Posted on <?php echo date('D j. M Y h:i:s', strtotime($photo->created_at)); ?></p>
 
 
 
@@ -101,7 +102,7 @@ $comments = $comment->find_comments($photo->id);
                     </a>
                     <div class="media-body">
                         <h4 class="media-heading"><?php echo $comment->author ?>
-                            <small>Posted on <?php echo $comment->created_at; ?></small>
+                            <small>Posted on <?php echo date('D j. M Y h:i:s', strtotime($comment->created_at)) ?></small>
                         </h4>
                         <?php echo $comment->body ?>
                     </div>

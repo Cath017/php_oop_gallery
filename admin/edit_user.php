@@ -56,14 +56,11 @@ if (isset($_POST['update'])) {
         <h1 class="page-header">
           Edit User
         </h1>
-        <div class="col-md-6 user-image-box">
+        <div class="col-md-4 user-image-box">
           <a href="#" data-toggle="modal" data-target="#photo-modal"><img class="img-responsive" src="<?php echo $user->image_placeholder(); ?>" alt=""></a>
         </div>
         <form action="" method="post" enctype="multipart/form-data">
-          <div class="col-md-6">
-            <div class="form-group">
-              <input type="file" name="user_image">
-            </div>
+          <div class="col-md-8">
             <div class="form-group">
               <label for="username">Username</label>
               <input type="text" name="username" class="form-control" value="<?php echo $user->username; ?>">
