@@ -79,7 +79,7 @@ if (empty($_GET['id'])) {
               <div class="inside">
                 <div class="box-inner">
                   <p class="text">
-                    <span class="glyphicon glyphicon-calendar"></span> Uploaded on: April 22, 2030 @ 5:26
+                    <span class="glyphicon glyphicon-calendar"></span> Uploaded on: <?php echo date('D j. M Y h:i:s', strtotime($photo->created_at)) ?>
                   </p>
                   <p class="text ">
                     Photo Id: <span class="data photo_id_box"><?php echo $photo->id; ?></span>

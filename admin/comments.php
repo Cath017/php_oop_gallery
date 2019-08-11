@@ -35,7 +35,6 @@
                                 <th>Id</th>
                                 <th>Author</th>
                                 <th>Body</th>
-                                <th>Edit</th>
                                 <th>Delete</th>
                             </tr>
                         </thead>
@@ -45,7 +44,6 @@
                                     <td><?php echo $comment->id; ?></td>
                                     <td><?php echo $comment->author; ?>
                                     <td><?php echo $comment->body; ?></td>
-                                    <td><a class="btn btn-success" href="edit_comment.php?id=<?php echo $comment->id ?>">Edit</a></td>
                                     <td><a class="btn btn-danger delete_button" href="delete_comment.php?id=<?php echo $comment->id; ?>">Delete</a></td>
                                 </tr>
                             <?php endforeach; ?>

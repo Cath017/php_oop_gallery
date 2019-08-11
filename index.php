@@ -15,7 +15,7 @@ $sql = "SELECT * FROM photos LIMIT {$items_per_page} OFFSET {$paginate->offset()
 $photos = $photo->find_by_query($sql);
 ?>
 
-<div class="row my-5">
+<div class="row pt-5">
 
     <!-- Blog Entries Column -->
     <div class="col-md-12 py-3">
@@ -24,7 +24,7 @@ $photos = $photo->find_by_query($sql);
                 <!-- Displaying Photos/Pictures -->
                 <?php
                 foreach ($photos as $photo) : ?>
-                    <div class="col-xs-6 col-md-3 my-2">
+                    <div class="col-xs-6 col-md-3 pd-2">
                         <div class="gallery">
                             <a class="thumbnail" href="photo.php?id=<?php echo $photo->id; ?>">
                                 <img class="img-fluid" src="admin/<?php echo $photo->picture_path(); ?>" alt="">
@@ -35,12 +35,12 @@ $photos = $photo->find_by_query($sql);
             </div>
             <br>
             <!-- Pagination -->
-            <div class="row justify-content-center">
+            <div class="row justify-content-center pt-5">
                 <ul class="pagination">
                     <?php
                     if ($paginate->page_total() > 1) {
-                        if ($paginate->has_next()) {
-                            echo "<li class='next page-item'><a class='page-link' href='index.php?page={$paginate->next()}'>Next</a></li>";
+                        if ($paginate->has_previous()) {
+                            echo "<li class='previous page-item'><a class='page-link' href='index.php?page={$paginate->previous()}'>Previous</a></li>";
                         }
 
                         for ($i = 1; $i <= $paginate->page_total(); $i++) {
@@ -51,30 +51,15 @@ $photos = $photo->find_by_query($sql);
                             }
                         }
 
-                        if ($paginate->has_previous()) {
-                            echo "<li class='previous page-item'><a class='page-link' href='index.php?page={$paginate->previous()}'>Previous</a></li>";
+                        if ($paginate->has_next()) {
+                            echo "<li class='next page-item'><a class='page-link' href='index.php?page={$paginate->next()}'>Next</a></li>";
                         }
                     }
                     ?>
-
-
                 </ul>
             </div>
         </div>
     </div>
-
-
-
-
-    <!-- Blog Sidebar Widgets Column -->
-    <!-- <div class="col-md-4"> -->
-
-
-    <?php //include("includes/sidebar.php"); 
-    ?>
-
-
-
 </div>
 <!-- /.row -->
 

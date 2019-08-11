@@ -40,10 +40,8 @@ $comments = (new Comment(new Database))->find_comments($_GET['id']);
                         <thead>
                             <tr>
                                 <th>Id</th>
-
                                 <th>Author</th>
                                 <th>Body</th>
-                                <th>Edit</th>
                                 <th>Delete</th>
                             </tr>
                         </thead>
@@ -54,7 +52,6 @@ $comments = (new Comment(new Database))->find_comments($_GET['id']);
 
                                     <td><?php echo $comment->author; ?></td>
                                     <td><?php echo $comment->body; ?></td>
-                                    <td><a class="btn btn-success" href="edit_comment.php?id=<?php echo $comment->id ?>">Edit</a></td>
                                     <td><a class="btn btn-danger delete_button" href="delete_comment_photo.php?id=<?php echo $comment->id; ?>">Delete</a></td>
                                 </tr>
                             <?php endforeach; ?>

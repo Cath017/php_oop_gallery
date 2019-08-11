@@ -1,4 +1,4 @@
-    <nav class="navbar navbar-expand-lg navbar-light" role="navigation">
+    <nav class="navbar navbar-expand-lg" role="navigation">
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
@@ -27,7 +27,7 @@
                             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-user"> <?php echo $session->username; ?></i><b class="caret"></b></a>
                             <ul class="dropdown-menu" role="menu">
                                 <li class="nav-link">
-                                    <a class="nav-link" href="admin/logout.php"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
+                                    <a id="logout" class="nav-link" href="admin/logout.php"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
                                 </li>
                             </ul>
                         </li>

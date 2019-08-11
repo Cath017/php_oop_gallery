@@ -1,14 +1,11 @@
 .page-link {
-  color: #333 !important;
+  background: black;
+  color: #fff !important;
 }
 
 a.active.page-link {
-  background: rgb(207, 199, 199) !important;
+  background: rgb(185, 47, 4) !important;
   border-color: transparent !important;
-}
-
-body {
-  background: #fff;
 }
 
 .gallery {
@@ -20,7 +17,34 @@ body {
 }
 
 .navbar {
-  border-bottom: 2px solid #999;
+  background: no-repeat url('../image/background.jpg');
+  border-bottom: 1px solid #fff;
   padding-top: 20px;
   padding-bottom: 20px;
+}
+
+.navbar a {
+  color: white;
+  text-shadow: 3px 3px 7px white;
+}
+
+#logout {
+  color: black;
+}
+
+.image-background {
+  position: relative;
+  background: url('../image/snake.jpg');
+}
+
+#overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 0;
+}
+
+footer {
+  background: no-repeat url('../image/background.jpg');
 }

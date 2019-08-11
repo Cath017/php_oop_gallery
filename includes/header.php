@@ -34,11 +34,9 @@
 </head>
 
 <body>
-
-
-
     <!-- Navigation -->
     <?php include("navigation.php"); ?>
-
-    <!-- Page Content -->
-    <div class="container">
+    <div class="image-background">
+        <div id="overlay"></div>
+        <!-- Page Content -->
+        <div class="container">

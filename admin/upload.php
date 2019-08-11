@@ -12,7 +12,7 @@ if (isset($_FILES['file'])) {
     $photo->set_file($_FILES['file']);
 
     if ($photo->save()) {
-        $message = "Photo uploaded successfully:";
+        $message = "Photo uploaded successfully.";
     } else {
         $message = join("<br>", $photo->errors);
     }

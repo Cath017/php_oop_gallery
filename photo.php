@@ -36,7 +36,6 @@ $comments = $comment->find_comments($photo->id);
 
 ?>
 
-
 <div class="row">
 
     <!-- Blog Post Content Column -->
@@ -45,21 +44,13 @@ $comments = $comment->find_comments($photo->id);
         <!-- Blog Post -->
 
         <!-- Title -->
-        <h1 class="mt-5"><?php echo $photo->title; ?></h1>
+        <h1 class="mt-5 text-white"><?php echo $photo->title; ?></h1>
 
         <!-- Author -->
-        <p class="lead">
-            by <a href="#">
-                <?php echo $user->username; ?>
-            </a>
-        </p>
-
-
+        <p class="lead text-white">by <?php echo $user->username; ?></p>
 
         <!-- Date/Time -->
-        <p>Posted on <?php echo date('D j. M Y h:i:s', strtotime($photo->created_at)); ?></p>
-
-
+        <p class="text-white">Posted on <?php echo date('D j. M Y h:i:s', strtotime($photo->created_at)); ?></p>
 
         <!-- Preview Image -->
         <img class="img-fluid mb-4" src="admin/<?php echo $photo->picture_path(); ?>" alt="">
@@ -95,12 +86,12 @@ $comments = $comment->find_comments($photo->id);
         <!-- Comment -->
         <?php if (count($comments) > 0) : ?>
             <?php foreach ($comments as $comment) : ?>
-                <div class="media border p-3">
+                <div class="card border p-3">
+                    <div class="card-body">
+                        <a class="pull-left" href="#">
+                            <img class="media-object mr-3" src="image/avatar.png" alt="" style="width:64px">
+                        </a>
 
-                    <a class="pull-left" href="#">
-                        <img class="media-object mr-3" src="image/avatar.png" alt="" style="width:64px">
-                    </a>
-                    <div class="media-body">
                         <h4 class="media-heading"><?php echo $comment->author ?>
                             <small>Posted on <?php echo date('D j. M Y h:i:s', strtotime($comment->created_at)) ?></small>
                         </h4>
@@ -110,22 +101,7 @@ $comments = $comment->find_comments($photo->id);
                 <br>
             <?php endforeach; ?>
         <?php endif; ?>
-
-
-
     </div>
-
-    <!-- Blog Sidebar Widgets Column -->
-    <!-- <div class="col-md-4"> -->
-
-    <?php //include("includes/sidebar.php"); 
-    ?>
-
-    <!-- </div> -->
-
 </div>
 <!-- /.row -->
-
-
-
 <?php include("includes/footer.php"); ?>
